@@ -1,0 +1,16 @@
+---
+version: 1.0
+
+build:
+  compiler: mvrc
+
+package:
+  name: kmeans
+  version: 0.0.1
+  metadata:
+      short_description: "K-means clustering"
+      license: "MIT"
+      author: "Motivus"
+      url: "https://motivus.cl/"
+      upstream_url: "https://github.com/m0tivus/example-kmeans-rust"
+      long_description: "k-means clustering is a method of vector quantization, originally from signal processing"

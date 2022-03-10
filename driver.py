@@ -1,8 +1,7 @@
-const wasm = require("./pkg/example_kmeans_rust.js")
+import asyncio
+from motivus.client import Client
 
-function test() {
-  console.log(wasm);
-  const matrix = [
+data = [
     [-2.7825343, -1.7604825, -5.5550113, -2.9752946, -2.7874138],
     [-2.9847919, -3.8209332, -2.1531757, -2.2710119, -2.3582877],
     [-3.0109320, -2.2366132, -2.8048492, -1.2632331, -4.5755581],
@@ -13,8 +12,27 @@ function test() {
     [2.5843321, 2.8329818, 2.1329531, 3.2562319, 2.4878733],
     [2.1859638, 3.2880048, 3.7018615, 2.3641232, 1.6281994],
     [2.6201773, 0.9006588, 2.6774097, 1.8188620, 1.6076493],
-  ]
-  console.log(wasm.main(matrix))
+]
+
+task_definition = {
+    # 'algorithm': "kmeans",
+    # 'algorithm_version': "0.0.1",
+    'wasm_path': "build/kmeans-0.0.1.wasm",
+    'loader_path': "build/kmeans-0.0.1.js",
+    'params': [
+        data,
+        2
+    ]
 }
 
-test()
+async def main():
+    """docstring for main"""
+    
+    motivus = await Client.connect()
+
+    task_id = motivus.call_async(task_definition)
+    task = motivus.select_task(task_id)
+    return await task
+
+result = asyncio.run(main())
+print(result)

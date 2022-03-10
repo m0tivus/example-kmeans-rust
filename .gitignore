@@ -4,3 +4,8 @@ Cargo.lock
 bin/
 pkg/
 wasm-pack.log
+
+obj/
+build/
+.env
+.motivus/
