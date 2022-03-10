@@ -9,7 +9,7 @@ package:
   version: 0.0.1
   metadata:
       short_description: "K-means clustering"
-      license: "MIT"
+      license: "GPLv3"
       author: "Motivus"
       url: "https://motivus.cl/"
       upstream_url: "https://github.com/m0tivus/example-kmeans-rust"
