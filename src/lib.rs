@@ -108,16 +108,23 @@ macro_rules! impl_kmeans {
     };
 }
 
-// generate code for kmeans for f32 and f64 data
-impl_kmeans!(f64, f64);
+// generate code for kmeans for f32 data
 impl_kmeans!(f32, f32);
 
-use crate::f64::kmeans;
+use crate::f32::kmeans;
 
 #[wasm_bindgen]
-pub fn main(input: &JsValue, clusters: &JsValue) -> String {
-    let xs: Vec<Vec<f64>> = input.into_serde().unwrap();
+pub fn main(input: &JsValue, clusters: &JsValue) -> Box<[JsValue]> {
+    // utils::set_panic_hook();
+
+    let xs: Vec<Vec<f32>> = input.into_serde().unwrap();
     let k: usize = clusters.into_serde().unwrap();
     let clustering = kmeans(xs, k);
-    return format!("{:?}", clustering);
-} 
+
+    clustering
+        .into_iter()
+        .map(|s| s as u32)
+        .map(JsValue::from)
+        .collect::<Vec<JsValue>>()
+        .into_boxed_slice()
+}

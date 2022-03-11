@@ -1,7 +1,7 @@
 [package]
 name = "example-kmeans-rust"
 version = "0.1.0"
-authors = ["Fernando Mora <f.mora.g90@gmail.com>"]
+authors = ["Fernando Mora <fernando@motivus.cl>"]
 edition = "2018"
 
 [lib]

@@ -26,8 +26,6 @@ task_definition = {
 }
 
 async def main():
-    """docstring for main"""
-    
     motivus = await Client.connect()
 
     task_id = motivus.call_async(task_definition)
