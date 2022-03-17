@@ -15,10 +15,10 @@ data = [
 ]
 
 task_definition = {
-    # 'algorithm': "kmeans",
-    # 'algorithm_version': "0.0.1",
-    'wasm_path': "build/kmeans-0.0.1.wasm",
-    'loader_path': "build/kmeans-0.0.1.js",
+    'algorithm': "kmeans",
+    'algorithm_version': "0.0.1",
+    # 'wasm_path': "build/kmeans-0.0.1.wasm",
+    # 'loader_path': "build/kmeans-0.0.1.js",
     'params': [
         data,
         2
