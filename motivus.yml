@@ -13,4 +13,4 @@ package:
       author: "Motivus"
       url: "https://motivus.cl/"
       upstream_url: "https://github.com/m0tivus/example-kmeans-rust"
-      long_description: ./README-motivus.md
+      long_description: ./USAGE.md
